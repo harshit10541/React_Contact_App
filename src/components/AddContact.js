@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class AddContact extends React.Component {
     state = {
@@ -26,18 +27,30 @@ class AddContact extends React.Component {
                 >
                     <div className="field">
                         <label>Name</label>
-                        <input value={this.state.name} type="text" name="name" placeholder="Name" onChange={(e) => this.setState({ name: e.target.value })} />
+                        <input 
+                        value={this.state.name} 
+                        type="text" 
+                        name="name" 
+                        placeholder="Name" 
+                        onChange={(e) => this.setState({ name: e.target.value })} 
+                        />
                     </div>
                     <div className="field">
                         <label>Email</label>
-                        <input value = {this.state.email} type="text" name="email" placeholder="email" onChange={(e) => this.setState({email: e.target.value})} />
+                        <input 
+                            value = {this.state.email} 
+                            type="text" 
+                            name="email" 
+                            placeholder="email" 
+                            onChange={(e) => this.setState({email: e.target.value})} 
+                        />
                     </div>
-                    <div>
+                        {/* <Link to = "/"> */}
                         <button className="ui button blue">Add</button>
-                    </div>
+                        {/* </Link> */}
                 </form>
             </div>
-        )
+        );
     }
 }
 

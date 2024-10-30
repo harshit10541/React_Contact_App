@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { v4 as uuid } from 'uuid';
 import Header from "./Header";
 import AddContact from "./AddContact";
@@ -13,7 +14,7 @@ function App() {
   const addContactHandler = (contact) => {
     // setContacts(a => [...a, contact])
     setContacts([...contacts,{ id: uuid(), ...contact}]);
-    // console.log("here"    );
+    console.log("here"    );
     // console.log([...contacts, {id: uuid(), ...contact}]);
     console.log(contact);
   }
@@ -35,11 +36,24 @@ function App() {
 }, [contacts]);
 
   return (
-    <div className='ui container'>
-      <Header />
-      <AddContact addContactHandler={addContactHandler} />
-      <ContactList contacts={contacts} removeContactHandler = {removeContactHandler} />
-    </div>
+    <div className="ui container">
+      {/* <Router> */}
+        <Header />
+        {/* <ContactList/> */}
+
+        {/* <Routes>
+          
+          <Route path="/add" exact element = {<AddContact addContactHandler = {addContactHandler} />} />
+          <Route path="/" exact element = {<ContactList contacts = {contacts} removeContactHandler = {removeContactHandler}/>} />
+        </Routes> */}
+
+        
+        
+        
+        <AddContact addContactHandler={addContactHandler} />
+        <ContactList contacts={contacts} getContactId = {removeContactHandler} />
+      {/* </Router> */}
+      </div>
   );
 }
 
